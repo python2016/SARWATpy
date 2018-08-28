@@ -1,2 +1,1 @@
-# SARWATpy
-This is an open source python-based code to automate Radarsat-2  Water body Extraction where the water mask algorithm has been already implemented.
+SARWATpy© is an open source python code designed by ARTEMIS Lab at University of Lethbridge, AB, Canada in 2016. The objective is to build an automated Radarsat-2 data processing to extract the surface water bodies.
