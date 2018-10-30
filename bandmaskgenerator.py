@@ -1,5 +1,3 @@
-# SARWATpy© is an open source python code designed by ARTEMIS Lab at the University of Lethbridge, AB, Canada in 2016. The objective is to build an automated Radarsat-2 data processing to extract the surface water bodies.
-
 
 def generate_SARWATpy_BandMathXMLFile(paraFileName):
       SARWATpy_BandMathXMLFile=open(paraFileName + ".xml","w")
