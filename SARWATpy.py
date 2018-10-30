@@ -8,10 +8,9 @@ from SARWATpy_Engine import *
 def getSARWATpySystemChoice():
     ARTeMiS_SystemChoice=input('''
     ========================================================================
-                           Welcome to SARWATpy Engine 
-
-                   "SAR Water Assessment Tool python" for 
-             SAR data Processing and Surface Water Body Extraction 
+                         Welcome to SARWATpy Engine 
+                     Surface Water Body Extraction
+                 with "SAR Water Assessment Tool python" 
     ========================================================================
     \n
     Please select the processing interface (CLI by Default): 
