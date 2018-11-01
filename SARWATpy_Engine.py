@@ -136,14 +136,6 @@ def BandMaths(paraProductName,paraOutPutDir,paraFileName):
       print("GLCM Completed... The execution time: " + str(elapsed_time))
       writeLogFile("GLCM for " + paraProductName + "  Completed... The execution time: " + str(elapsed_time))
 
-def Vectorization(paraProductName,paraOutPutDir):
-      start_time = time.time()
-      #test=check_output("gpt GLCM -Ssource='ourtho.tif' -PoutputMAX=false -PoutputCorrelation=true -PoutputMean=true  -PoutputVariance=true -PquantizationLevelsStr='32' -PwindowSizeStr='7x7' -PoutputDissimilarity=true -PoutputEntropy=false -PsourceBands='Sigma0_HH' -PoutputContrast=true -t 'glcm.tif' -f 'GeoTIFF'", shell=True)
-      elapsed_time = time.time() - start_time
-      #print(test)
-      print("Sorry this feature is not implemented yet...")
-      print("GLCM Completed... The execution time: " + str(elapsed_time))
-
 
 def writeLogFile(paraMesage):
       logFile = open("log.txt", "a")
