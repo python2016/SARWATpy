@@ -29,7 +29,7 @@ def getSARWATpyStandard():
                             SARWATpy routine:
     ========================================================================
     Please select your threshholing approach: 
-    1- Texture-based       2- ONLY Orthorectification       3- External Product
+    1- Texture-based       2- Intensity (db)-based    3- ONLY Orthorectification       4- External Product
     ''')    
     
     if(ARTeMiS_Base==1):
@@ -119,4 +119,82 @@ def getSARWATpyGPTActions_TextureBased():
     return lclARTeMiS_Actions
 
 
-                              
+   def getSARWATpyGPTActions_dbBased():
+    
+    ARTeMiS_Action=input('''
+
+                                Key SAR Processing Steps (db-Based)
+                                --------------------------------------------
+    1- SAR Radiometric Calibration (Cal)(SNAP Standard Format .dim, sigma0- based)
+    2- Speckle Filtering (LEE) (Optional Step)
+    3- db-backscatter
+    4- Water Mask Extraction
+    5- Orthorectification (.geotif)
+
+    ===============================================================================
+                                    Batch Processing 
+    ===============================================================================
+    6- --- Steps 1 .. 5
+    7- --- Steps 1,3,4,5
+
+    ''')
+    print("\n***********************************************************\n")
+
+    #lclARTeMiS_Actions={'ARTeMiSOrtho':False,'ARTeMiSGLCM':False,'ARTeMiSEntropyThreshhold':False}
+    lclARTeMiS_Actions={}
+    lclARTeMiS_Actions['ARTeMiS_Interface']="gpt"    
+    lclARTeMiS_Actions['ARTeMiS_Caliboration']=False
+    lclARTeMiS_Actions['ARTeMiS_Filtering']=False
+    lclARTeMiS_Actions['ARTeMiS_Orthorectification_on_filtered_SAR']=False
+    lclARTeMiS_Actions['ARTeMiS_Orthorectification_on_caliborated_SAR']=False
+    lclARTeMiS_Actions['ARTeMiS_GLCM']=False
+    lclARTeMiS_Actions['ARTeMiS_EntropyThreshhold']=False
+    lclARTeMiS_Actions['ARTeMiS_Vectorization']=False
+
+    lclARTeMiS_Actions['ARTeMiS_Caliboration_As_GEOTIFF']=False
+    lclARTeMiS_Actions['ARTeMiS_Speckle_Filter_As_GEOTIFF']=False
+    lclARTeMiS_Actions['ARTeMiS_BandMaths_As_GEOTIFF']=False    
+    
+    if(ARTeMiS_Action==1 or ARTeMiS_Action==15 or (ARTeMiS_Action>6 and ARTeMiS_Action<14)):
+        ARTeMiS_Caliboration=True;
+        lclARTeMiS_Actions['ARTeMiS_Caliboration']=True
+
+    if(ARTeMiS_Action==2 or ARTeMiS_Action==7 or ARTeMiS_Action==8 or ARTeMiS_Action==10 or ARTeMiS_Action==12):
+        ARTeMiS_Filtering=True;
+        lclARTeMiS_Actions['ARTeMiS_Filtering']=True
+
+    if(ARTeMiS_Action==3 or ARTeMiS_Action==8 or ARTeMiS_Action==10 or ARTeMiS_Action==12):
+        ARTeMiS_Orthorectification=True;
+        lclARTeMiS_Actions['ARTeMiS_Orthorectification_on_filtered_SAR']=True
+
+    if(ARTeMiS_Action==4 or ARTeMiS_Action==9 or ARTeMiS_Action==9 or ARTeMiS_Action==11 or ARTeMiS_Action==13):
+        ARTeMiS_Orthorectification=True;
+        lclARTeMiS_Actions['ARTeMiS_Orthorectification_on_caliborated_SAR']=True
+    if(ARTeMiS_Action==5 or (ARTeMiS_Action>9 and ARTeMiS_Action<14)):
+        ARTeMiS_GLCM=True;
+        lclARTeMiS_Actions['ARTeMiS_GLCM']=True
+
+    if(ARTeMiS_Action==6 or ARTeMiS_Action==12 or ARTeMiS_Action==13):
+        ARTeMiS_EntropyThreshhold=True;
+        lclARTeMiS_Actions['ARTeMiS_EntropyThreshhold']=True
+
+    if(ARTeMiS_Action==14):
+        ARTeMiS_EntropyThreshhold=True;
+        lclARTeMiS_Actions['ARTeMiS_Caliboration_As_GEOTIFF']=True
+
+    if(ARTeMiS_Action==15):
+        ARTeMiS_EntropyThreshhold=True;
+        lclARTeMiS_Actions['ARTeMiS_Speckle_Filter_As_GEOTIFF']=True
+
+    if(ARTeMiS_Action==16):
+        ARTeMiS_EntropyThreshhold=True;
+        lclARTeMiS_Actions['ARTeMiS_BandMaths_As_GEOTIFF']=True
+        
+     
+    print(lclARTeMiS_Actions)
+    return lclARTeMiS_Actions
+
+def getSARWATpyGPTActions_General():
+    
+    ARTeMiS_Action=input('''
+    (SNAP Standard Format .dim, sigma0- based)                           
