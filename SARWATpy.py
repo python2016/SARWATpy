@@ -7,11 +7,11 @@ from SARWATpy_Engine import *
 
 def getSARWATpySystemChoice():
     ARTeMiS_SystemChoice=input('''
-    ========================================================================
+    =======================================================================================================
                          Welcome to SARWATpy Engine 
                      Surface Water Body Extraction
                  with "SAR Water Assessment Tool python" 
-    ========================================================================
+    =======================================================================================================
     \n
     Please select the processing interface (CLI by Default): 
     1- CLI                  2- SNAPPY
@@ -27,9 +27,9 @@ def getSARWATpySystemChoice():
 def getSARWATpyStandard():
     ARTeMiS_Base=input('''
                             SARWATpy routine:
-    ========================================================================
+    =======================================================================================================
     Please select your threshholing approach: 
-    1- Texture-based       2- Intensity (db)-based    3- ONLY Orthorectification       4- External Product
+    1- Texture-based       2- Intensity-based    3- ONLY Orthorectification       4- External Product
     ''')    
     
     if(ARTeMiS_Base==1):
@@ -55,9 +55,9 @@ def getSARWATpyGPTActions_TextureBased():
     4- Water Mask Extraction
     5- Orthorectification (.geotif)
 
-    ===============================================================================
+    ======================================================================================================
                                     Batch Processing 
-    ===============================================================================
+    ======================================================================================================
     6- --- Steps 1 .. 5
     7- --- Steps 1,3,4,5
      ''')
@@ -123,7 +123,7 @@ def getSARWATpyGPTActions_TextureBased():
     
     ARTeMiS_Action=input('''
 
-                                Key SAR Processing Steps (db-Based)
+                                Key SAR Processing Steps (Intensity-Based)
                                 --------------------------------------------
     1- SAR Radiometric Calibration (Cal)(SNAP Standard Format .dim, sigma0- based)
     2- Speckle Filtering (LEE) (Optional Step)
